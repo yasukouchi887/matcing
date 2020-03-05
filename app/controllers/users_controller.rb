@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.update(user_params)
+    @user = User.new(user_params)
 
     if @user.save
       flash[:success] = 'ユーザは正常に更新されました。'
