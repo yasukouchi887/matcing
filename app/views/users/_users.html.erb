@@ -1,6 +1,7 @@
-<% if users.any? %>
+<% if relationships.any? %>
   <ul class="list-unstyled">
-    <% users.each do |user| %>
+    <% relationships.each do |relationship| %>
+      <% user = relationship.user %>
       <li class="media">
         <img class="mr-2 rounded" src="<%= gravatar_url(user, { size: 50 }) %>" alt="">
         <div class="media-body">
@@ -9,10 +10,11 @@
           </div>
           <div>
             <p><%= link_to 'View profile', user_path(user) %></p>
+            <%= render 'relationships/accept_button', relationship: relationship %>
           </div>
         </div>
       </li>
     <% end %>
   </ul>
-  <%= paginate users %>
+  <%= paginate relationships %>
 <% end %>

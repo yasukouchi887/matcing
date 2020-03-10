@@ -10,9 +10,11 @@ Rails.application.routes.draw do
     member do
       get :followings
       get :followers
+      get :matchings
     end
   end
   
   resources :microposts, only: [:create, :destroy]
-  resources :relationships, only: [:create]
+  resources :relationships, only: [:create, :update, :destroy]
+  resources :rooms, only: [:show]
 end

@@ -14,6 +14,6 @@
     <ul class="nav nav-tabs nav-justified mb-3">
       <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">自分からいいね！  <span class="badge badge-secondary"></a></li>
       <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">もらったいいね！  <span class="badge badge-secondary"></a></li>
-    </ul>
+      <li class="nav-item"><a href="<%= matchings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(matchings_user_path(@user)) %>">マッチング！  <span class="badge badge-secondary"></a></li>
   </div>
 </div>

@@ -8,23 +8,27 @@ class RelationshipsController < ApplicationController
     redirect_to user
   end
   
-  def accept
-    matching = current_user.reverses_of_relationship.find(params[:id])
+  def update
+    matching = current_user.reverses_of_relationship.find(params[:relationship_id])
     matching.status = 2
     flash[:success] = 'マッチングしました。'
     
-    room = Room.new
-    room.create(relationship_id: matching.id)
+    room = Room.new(relationship_id: matching.id)
+    #room.create(relationship_id: matching.id)
     
     room.save!
     matching.save!
+    
+    render "rooms/show"
   end
   
-  def not_accept
+  def destroy
     matching = current_user.reverses_of_relationship.find(params[:id])
     matching.status = 1
     
     matching.save!
+    
+    redirect_to root_url
   end
   
 end

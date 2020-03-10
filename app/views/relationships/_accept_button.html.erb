@@ -1,0 +1,9 @@
+<%= form_with(model: relationship, local: true, method: :delete) do |f| %>
+  <%= hidden_field_tag :relationship_id, relationship.id %>
+  <%= f.submit 'ごめんなさい！', class: 'btn btn-danger btn-block' %>
+<% end %>
+
+<%= form_with(model: relationship, local: true, method: :patch) do |f| %>
+  <%= hidden_field_tag :relationship_id, relationship.id %>
+  <%= f.submit 'ありがとう！', class: 'btn btn-primary btn-block' %>
+<% end %>
